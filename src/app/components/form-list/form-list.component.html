@@ -1,0 +1,34 @@
+<div>
+  <h3>人员登记系统</h3>
+  <div>
+    <form action="#">
+      <ul>
+        <li>
+          <label for="name">姓名：</label>
+          <input id="name" type="text" placeholder="请输入姓名" [(ngModel)]="infoList.username" name="username">
+        </li>
+        <li>
+          <label for="age">年龄：</label>
+          <input id="age" type="number" placeholder="请输入年龄" [(ngModel)]="infoList.age" name="age">
+        </li>
+        <li>
+          <span>性别：</span>
+          <input id="sex1" type="radio" [(ngModel)]="infoList.sex" value="0" name="sex">
+          <label for="sex1">男</label> &nbsp;&nbsp;
+          <input id="sex2" type="radio" [(ngModel)]="infoList.sex" value="1" name="sex">
+          <label for="sex2">女</label>
+        </li>
+        <li>
+          <span>爱好：</span>
+          <span *ngFor="let item of infoList.hobby">
+            <input type="checkbox" [(ngModel)]="item.checked" [id]="'check'+key" name="item.title">
+            <label for="'check'+key">{{item.title}}</label>&nbsp;&nbsp;
+          </span>
+        </li>
+      </ul>
+      <button type="submit" (click)="submitInfo()">提交信息</button>
+    </form>
+
+
+  </div>
+</div>

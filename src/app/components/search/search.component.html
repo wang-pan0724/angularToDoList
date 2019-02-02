@@ -1,0 +1,24 @@
+<div>
+  <input type="text" [(ngModel)]="strings">
+  <button (click)="doSearch()">搜索</button>
+</div>
+<div>
+  <h3>待办事项</h3>
+  <ul>
+    <li *ngFor="let item of listItem; let key = index">
+      <input type="checkbox" [(ngModel)]="item.checked" (change)="doChange(key,item)">
+      <span>{{item.content}}</span>
+      <button (click)="doDelate(key)">x</button>
+    </li>
+  </ul>
+
+
+  <h3>已完成事项</h3>
+  <ul>
+    <li *ngFor="let item of doneListItem; let key = index">
+      <input type="checkbox" [(ngModel)]="item.checked" (change)="doneChange(key,item)">
+      <span>{{item.content}}</span>
+      <button (click)="doneDelate(key)">x</button>
+    </li>
+  </ul>
+</div>
